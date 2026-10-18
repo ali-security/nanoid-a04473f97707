@@ -1,11 +1,10 @@
 name: Release
 on:
-  push:
-    tags:
-      - '*'
+  workflow_dispatch: {}
 jobs:
   publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
       contents: read
       id-token: write
@@ -26,6 +25,7 @@ jobs:
         working-directory: cleaned-project/
   release:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
       contents: write
     steps:
